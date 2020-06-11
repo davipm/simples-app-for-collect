@@ -33,7 +33,7 @@ function getCities(event) {
     .then((res) => res.json())
     .then((cities) => {
       for (const city of cities) {
-        citySelect.innerHTML = `<option value="${city.nome}">${city.nome}</option>`;
+        citySelect.innerHTML += `<option value="${city.nome}">${city.nome}</option>`;
       }
 
       citySelect.disabled = false;
@@ -41,3 +41,34 @@ function getCities(event) {
 }
 
 document.querySelector("select[name=uf]").addEventListener("change", getCities);
+
+// get all list items
+const itemsToCollect = document.querySelectorAll(".items-grid li");
+for (const item of itemsToCollect) {
+  item.addEventListener("click", handleSelectedItem);
+}
+
+const collectedItems = document.querySelector("input[name=items]");
+let selectedItems = [];
+
+function handleSelectedItem(event) {
+  const itemLi = event.target;
+
+  itemLi.classList.toggle("selected");
+
+  const itemId = itemLi.dataset.id;
+
+  const alreadySelected = selectedItems.findIndex((item) => {
+    return item === itemId;
+  });
+
+  if (alreadySelected >= 0) {
+    selectedItems = selectedItems.filter((item) => {
+      return item !== itemId;
+    });
+  } else {
+    selectedItems.push(itemId);
+  }
+
+  collectedItems.value = selectedItems;
+}
