@@ -13,7 +13,7 @@
 
 {% block content %}
   {% include "partials/header.html" %}
-  <form action="/savepoint" method="post" class="form">
+  <form action="/savepoint" method="POST" class="form">
     <h1 class="form__title">Cadastro do ponto de coleta</h1>
 
     <fieldset>
@@ -41,7 +41,7 @@
 
         <div class="field">
           <label for="address2">Número/Complemento</label>
-          <input type="url" name="address2" id="address2" required>
+          <input type="text" name="address2" id="address2" required>
         </div>
       </div>
 
