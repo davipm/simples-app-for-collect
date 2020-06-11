@@ -43,7 +43,8 @@ function getCities(event) {
 document.querySelector("select[name=uf]").addEventListener("change", getCities);
 
 // get all list items
-const itemsToCollect = document.querySelectorAll(".items-grid li");
+const itemsToCollect = document.querySelectorAll(".items-grid div");
+
 for (const item of itemsToCollect) {
   item.addEventListener("click", handleSelectedItem);
 }
