@@ -1,5 +1,3 @@
-# Ecoleta
-
 Simpes fullstack application for waste collection points
 
 ### Prerequisites
